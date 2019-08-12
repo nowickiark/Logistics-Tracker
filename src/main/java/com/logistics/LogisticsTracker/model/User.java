@@ -1,13 +1,15 @@
 package com.logistics.LogisticsTracker.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "user", catalog = "logisticsdata")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name = "first_name")
@@ -15,11 +17,14 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     private String email;
-    private LocalDateTime dateOfBirth;
-    private long pesel;
-    private String idCardNumber;
 
     public User(){};
+
+    public User(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
     public long getId() {
         return id;
@@ -51,29 +56,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public LocalDateTime getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDateTime dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public Long getPesel() {
-        return pesel;
-    }
-
-    public void setPesel(Long pesel) {
-        this.pesel = pesel;
-    }
-
-    public String getIdCardNumber() {
-        return idCardNumber;
-    }
-
-    public void setIdCardNumber(String idCardNumber) {
-        this.idCardNumber = idCardNumber;
     }
 }
