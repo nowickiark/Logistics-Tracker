@@ -1,4 +1,6 @@
-package com.logistics.LogisticsTracker.model;
+package com.logistics.LogisticsTracker.userPackage.entity;
+
+import com.logistics.LogisticsTracker.model.Tour;
 
 import java.time.LocalDateTime;
 import java.util.Set;

@@ -1,7 +1,7 @@
-package com.logistics.LogisticsTracker.controller;
+package com.logistics.LogisticsTracker.userPackage.controller;
 
-import com.logistics.LogisticsTracker.model.User;
-import com.logistics.LogisticsTracker.service.UserService;
+import com.logistics.LogisticsTracker.userPackage.entity.User;
+import com.logistics.LogisticsTracker.userPackage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +11,17 @@ import java.util.List;
 @Controller
 public class UserController {
 
-@Autowired
+
 private UserService userService;
 
+    @Autowired
     public UserController(UserService userService){
         this.userService = userService;
 }
 
     @RequestMapping("/userSave")
-    public void saveUser(@RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName,@RequestParam("email") String email ) {
+    @ResponseBody
+    public User saveUser(@RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName,@RequestParam("email") String email ) {
 
         System.out.println(firstName);
         System.out.println(lastName);
@@ -32,6 +34,8 @@ private UserService userService;
         newUser.setEmail(email);
 
         System.out.println(userService.saveUser(newUser));
+
+        return newUser;
     }
 
     @GetMapping("/showAll")

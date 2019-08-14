@@ -1,7 +1,7 @@
-package com.logistics.LogisticsTracker.service;
+package com.logistics.LogisticsTracker.userPackage.service;
 
-import com.logistics.LogisticsTracker.model.User;
-import com.logistics.LogisticsTracker.repository.UserRepository;
+import com.logistics.LogisticsTracker.userPackage.entity.User;
+import com.logistics.LogisticsTracker.userPackage.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

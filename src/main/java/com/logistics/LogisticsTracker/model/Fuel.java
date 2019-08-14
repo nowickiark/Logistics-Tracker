@@ -1,5 +1,7 @@
 package com.logistics.LogisticsTracker.model;
 
+import com.logistics.LogisticsTracker.vehiclePackage.entity.Truck;
+
 public class Fuel {
 
     private double liters;

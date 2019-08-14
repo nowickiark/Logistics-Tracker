@@ -1,6 +1,6 @@
-package com.logistics.LogisticsTracker.dao;
+package com.logistics.LogisticsTracker.userPackage.dao;
 
-import com.logistics.LogisticsTracker.model.User;
+import com.logistics.LogisticsTracker.userPackage.entity.User;
 
 import java.util.List;
 

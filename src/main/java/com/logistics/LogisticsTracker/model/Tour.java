@@ -1,7 +1,8 @@
 package com.logistics.LogisticsTracker.model;
 
+import com.logistics.LogisticsTracker.vehiclePackage.entity.Truck;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 public class Tour {

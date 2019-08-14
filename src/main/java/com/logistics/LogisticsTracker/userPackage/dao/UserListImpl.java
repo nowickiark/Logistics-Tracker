@@ -1,7 +1,6 @@
-package com.logistics.LogisticsTracker.dao;
+package com.logistics.LogisticsTracker.userPackage.dao;
 
-import com.logistics.LogisticsTracker.model.User;
-import org.springframework.beans.factory.annotation.Value;
+import com.logistics.LogisticsTracker.userPackage.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.logistics.LogisticsTracker.repository;
+package com.logistics.LogisticsTracker.userPackage.repository;
 
-import com.logistics.LogisticsTracker.model.User;
+import com.logistics.LogisticsTracker.userPackage.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

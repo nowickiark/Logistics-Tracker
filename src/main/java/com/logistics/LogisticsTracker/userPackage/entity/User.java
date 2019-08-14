@@ -1,4 +1,4 @@
-package com.logistics.LogisticsTracker.model;
+package com.logistics.LogisticsTracker.userPackage.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @Column(name = "first_name")
