@@ -1,9 +1,7 @@
 package com.logistics.LogisticsTracker.vehiclePackage.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Trailer {
@@ -16,6 +14,9 @@ public class Trailer {
     private double widgh;
     private double hight;
     private int palletPlaces;
+
+    @OneToOne
+    private Truck truck;
 
     public long getId() {
         return id;
@@ -64,4 +65,13 @@ public class Trailer {
     public void setPalletPlaces(int palletPlaces) {
         this.palletPlaces = palletPlaces;
     }
+
+    public Truck getTruck() {
+        return truck;
+    }
+
+    public void setTruck(Truck truck) {
+        this.truck = truck;
+    }
+
 }

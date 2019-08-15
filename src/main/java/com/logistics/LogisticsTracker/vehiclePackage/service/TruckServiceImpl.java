@@ -1,5 +1,6 @@
 package com.logistics.LogisticsTracker.vehiclePackage.service;
 
+import com.logistics.LogisticsTracker.vehiclePackage.entity.Trailer;
 import com.logistics.LogisticsTracker.vehiclePackage.entity.Truck;
 import com.logistics.LogisticsTracker.vehiclePackage.repository.*;
 
@@ -8,41 +9,72 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @Transactional
 public class TruckServiceImpl implements TruckService {
 
-/*    private TruckRepository truckRepository;
+    private TruckRepository repository;
 
     @Autowired
-    public TruckServiceImpl(TruckRepository truckRepository){
-        this.truckRepository = truckRepository;
-    }*/
+    public TruckServiceImpl(TruckRepository repository){
+        this.repository = repository;
+    }
 
     @Override
     public List getAllTrucks() {
-        return null;
+
+        List<Truck> trucks = new ArrayList<>();
+        repository.findAll().forEach(t->trucks.add(t));
+        return trucks;
     }
 
     @Override
     public Truck getTruckById(long id) {
-        return null;
+
+        Truck truck = repository.findById(id).get();
+
+        return truck;
     }
 
     @Override
     public Truck getTruckByPlateNumber(String plateNumber) {
-        return null;
+
+        List<Truck> trucks = repository.findByTruckPlateNumber(plateNumber);
+
+        return trucks.get(0);
+
     }
 
     @Override
     public boolean saveTruck(Truck truck) {
-        return false;
+
+        try {
+            repository.save(truck);
+            return true;
+        } catch (Exception ex){
+            return false;
+        }
+
     }
 
     @Override
-    public boolean delateTruckById(long id) {
-        return false;
+    public boolean deleteTruckById(long id) {
+
+        try {
+            repository.deleteById(id);
+            return true;
+        } catch (Exception ex){
+            return false;
+        }
+    }
+
+    @Override
+    public boolean setTrailer(Truck truck,Trailer trailer) {
+        truck.setTrailer(trailer);
+
+        return saveTruck(truck);
     }
 }

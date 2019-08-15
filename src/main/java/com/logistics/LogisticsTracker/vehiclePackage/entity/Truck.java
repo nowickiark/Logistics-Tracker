@@ -3,6 +3,7 @@ package com.logistics.LogisticsTracker.vehiclePackage.entity;
 import com.logistics.LogisticsTracker.vehiclePackage.entity.Trailer;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "truck",catalog = "logisticsdata")
@@ -58,5 +59,21 @@ public class Truck {
 
     public void setKilometersStatus(long kilometersStatus) {
         this.kilometersStatus = kilometersStatus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Truck truck = (Truck) o;
+        return id == truck.id &&
+                kilometersStatus == truck.kilometersStatus &&
+                Objects.equals(truckPlateNumber, truck.truckPlateNumber) &&
+                Objects.equals(trailer, truck.trailer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, truckPlateNumber, trailer, kilometersStatus);
     }
 }

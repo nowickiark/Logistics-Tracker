@@ -1,5 +1,7 @@
 package com.logistics.LogisticsTracker.userPackage.entity;
 
+import com.logistics.LogisticsTracker.vehiclePackage.entity.Truck;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,6 +19,10 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     private String email;
+
+    @OneToOne
+    @JoinColumn(name = "truck_id")
+    private Truck defaultTruck;
 
     public User(){};
 
@@ -56,5 +62,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Truck getDefaultTruck() {
+        return defaultTruck;
+    }
+
+    public void setDefaultTruck(Truck defaultTruck) {
+        this.defaultTruck = defaultTruck;
     }
 }

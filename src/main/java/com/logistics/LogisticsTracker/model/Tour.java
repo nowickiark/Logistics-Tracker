@@ -1,6 +1,7 @@
 package com.logistics.LogisticsTracker.model;
 
 import com.logistics.LogisticsTracker.vehiclePackage.entity.Truck;
+import com.logistics.LogisticsTracker.userPackage.entity.Driver;
 
 import java.time.LocalDate;
 import java.util.Set;

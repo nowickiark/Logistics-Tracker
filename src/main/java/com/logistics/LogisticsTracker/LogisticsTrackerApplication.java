@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-//@EnableJpaRepositories(basePackages = "com.logistics.LogisticsTracker.userPackage.repository")
 @EnableJpaRepositories(basePackages = {"com.logistics.LogisticsTracker.userPackage.repository","com.logistics.LogisticsTracker.vehiclePackage.repository"})
 @SpringBootApplication
 public class LogisticsTrackerApplication {
