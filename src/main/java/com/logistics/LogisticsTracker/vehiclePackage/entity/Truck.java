@@ -1,9 +1,13 @@
 package com.logistics.LogisticsTracker.vehiclePackage.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.logistics.LogisticsTracker.tourPackage.entity.Fuel;
 import com.logistics.LogisticsTracker.vehiclePackage.entity.Trailer;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "truck",catalog = "logisticsdata")
@@ -14,15 +18,26 @@ public class Truck {
     private long id;
     private String truckPlateNumber;
 
+
+    private long kilometersStatus;
+    private double maxWeight;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private LocalDate dateOfLastDiagnostics;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private LocalDate dateOfInusrance;
+
     @OneToOne
     @JoinColumn(name = "trailer_id")
     private Trailer trailer;
-    private long kilometersStatus;
+
+    @OneToMany(mappedBy = "fuel_id")
+    private Set<Fuel> fuels;
 
 
 /*    More truck details like:
     - horsepower
-    - date of last diagnostic
     - list of replaced parts
     - Insurence
     - Petrol cards

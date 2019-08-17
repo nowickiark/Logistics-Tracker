@@ -6,6 +6,7 @@ import com.logistics.LogisticsTracker.vehiclePackage.service.TrailerService;
 import com.logistics.LogisticsTracker.vehiclePackage.service.TruckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,11 +24,7 @@ public class TruckController {
 
     @RequestMapping("/saveTruck")
     @ResponseBody
-    public Truck saveTruck(@RequestParam("truck_plate_number") String truckPlateNumber){
-
-        Truck truck = new Truck();
-
-        truck.setTruckPlateNumber(truckPlateNumber);
+    public Truck saveTruck(@RequestBody Truck truck){
 
         System.out.println(truckService.saveTruck(truck));
 

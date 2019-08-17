@@ -21,22 +21,35 @@ private UserService userService;
 
     @RequestMapping("/userSave")
     @ResponseBody
-    public User saveUser(@RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName,@RequestParam("email") String email ) {
-
-        System.out.println(firstName);
-        System.out.println(lastName);
-        System.out.println(email);
-
-
-        User newUser = new User();
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
-        newUser.setEmail(email);
+    public User saveUser(@RequestBody User newUser ) {
 
         System.out.println(userService.saveUser(newUser));
 
         return newUser;
     }
+
+    @RequestMapping("/saveWholeUser")
+    @ResponseBody
+    public User saveWholeUser(@RequestBody User user){
+
+        System.out.println(userService.saveUser(user));
+
+        user.getEmail();
+
+        return user;
+
+    }
+
+    @RequestMapping("/updateUser")
+    @ResponseBody
+    public User upsateUser(@RequestBody User user){
+
+        System.out.println(userService.saveUser(user));
+
+        return user;
+
+    }
+
 
     @GetMapping("/showAll")
     @ResponseBody
