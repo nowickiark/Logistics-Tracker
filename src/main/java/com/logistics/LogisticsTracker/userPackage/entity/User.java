@@ -30,8 +30,6 @@ public class User {
     private String idCardNumber;
 
 
-
-
     public User(){};
 
     public User(String firstName, String lastName, String email) {

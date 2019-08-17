@@ -19,10 +19,10 @@ public class Driver extends User {
     @JoinColumn(name = "truck_id")
     private Truck defaultTruck;
 
-    @OneToMany(mappedBy = "fuel_id")
+    @OneToMany(mappedBy = "driver")
     private Set<Fuel> fuels;
 
-    @OneToMany(mappedBy ="tour_id")
+    @OneToMany(mappedBy ="driver")
     private Set<Tour> tours;
 
 

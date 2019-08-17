@@ -17,8 +17,6 @@ public class Truck {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String truckPlateNumber;
-
-
     private long kilometersStatus;
     private double maxWeight;
 
@@ -32,7 +30,7 @@ public class Truck {
     @JoinColumn(name = "trailer_id")
     private Trailer trailer;
 
-    @OneToMany(mappedBy = "fuel_id")
+    @OneToMany(mappedBy = "truck")
     private Set<Fuel> fuels;
 
 
